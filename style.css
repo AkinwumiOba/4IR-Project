@@ -9,6 +9,11 @@
         --Body: "Urbanist", sans-serif;
     }
 
+    @font-face {
+        font-family: 'social';
+        src: url('assets/Social\ Media\ Circled.ttf') format('truetype');
+    }
+      
     body {
         margin: 0;
         padding: 0;
@@ -131,13 +136,13 @@
     .greenBox{
         background-color: #06860c;
         margin-top: 80px;
-        height: 300px;
+        border: outset solid #06860c 7px;
         position: relative;
     }
 
     .greencloud {
     position: absolute;
-    top: 420px; 
+    margin-top: 60px; 
     left: 50%; 
     transform: translate(-50%, -50%);
     width: 100%;
@@ -145,7 +150,7 @@
     
     .whitecloud {
     position: absolute;
-    top: 460px; 
+    margin-top: 160px; 
     left: 50%; 
     transform: translate(-50%, -50%);
 }
@@ -164,24 +169,163 @@
         text-align: center;
     }
 
-    .twoBut{
-        border: red solid 1px;
+    .lang {
+        position: relative; 
+        z-index: 10; 
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+        color: black;
+    }
+    
+
+    .logoMove {
+        overflow: hidden;
         display: flex;
-        background-color: #9ea0a1;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-top:150px;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .image-container {
+        /* background-color: white; */
+        flex-grow: 1;
+        display: flex;
+        /* height: 50px; */
+        gap: 40px;
+        flex-basis: 100%;
+        height: auto;
+        animation: scroll 10s linear infinite;
+      }
+
+    
+      
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-30%);
+        }
+      }
+
+      .image-container img {
+        max-width: 5em;
+        height: 15em;
+        object-fit: contain;
+      }
+
+    .twoBut{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        border-radius: 50px;
+        height: 50px;
+        width: 300px;
+        background-color: #e7f1e9;
+        position: absolute;
+        top: 1050px; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
     }
 
+    .twuButt{
+        height: 35px;
+        width: 100px;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    button.stud{
+        background-color: #06860c;
+        border: #ffffff;
+    }
+
+    button.par{
+        color: #666;
+        background-color: #ffffff00;
+        border: #ffffff;
+    }
+
+    button.twuButt:hover{
+        border: 1px rgba(255, 255, 255, 0) solid;
+        border-radius: 40px;
+        color: white;
+        background-color: rgb(26, 25, 25);
+        transition: 300ms ease-in-out;
+    }
+
+    footer{
+        margin-top: 40px;
+        background-color: black;
+        padding: 30px 180px;
+    }
+
+    section{
+       display: flex;
+    }
+
+    h3{
+        margin-top: 70px;
+        font-weight: 200;
+        font-size: 14px;
+    }
+
+    .foot ul, .socialIcon {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .foot li, .socialIcon {
+        display: block;
+      }
+      
+      .foot a, .socialIcon {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      .socialIcon, .socialIcon:hover {
+        text-decoration: none; 
+      }
+      
+      .foot li:hover, .socialIcon:hover {
+        color: #8a8a8a;
+      }
+      
+      .copy{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+      }
+      
+      .socialIcon{
+        font-family: 'social' sans-serif;
+        display: flex;
+
+      }
 
 
     @media (min-width: 425px) {
 
-        .logoHead {
-            background-image: url('./Assets/Logo/cropped-ERUDITE-LOGO-200x67.png');
-            
+        .logoHead{
+            background-image: url('./Assets/Logo/cropped-ERUDITE-LOGO-200x67.png');   
         }
 
         .logoHeader{
             padding-inline: 20px;
             width: 90%;
+            
         }
 
         .contact1{
@@ -206,7 +350,7 @@
         }
     
         .greencloud {
-        top: 495px; 
+        top: 385px; 
         left: 50%; 
         width: 100%;
         transform: translate(-50%, -50%);
@@ -214,11 +358,22 @@
         
         .whitecloud {
         position: absolute;
-        top: 530px; 
+        top: 400px; 
         left: 50%; 
         transform: translate(-50%, -50%);
-    }
+        }
+        
+        .logoMove{
+            margin-top:-40px;
+        }
+
+        .twoBut{
+            top:750px;
+        }
     
+        section{
+            flex-direction: column;
+        }
     }
 
     @media (min-width: 640px) {
@@ -229,6 +384,7 @@
         }
 
         .logoHeader {
+            justify-content: space-evenly;
             padding-inline: 60px;
             background-color: rgba(255, 255, 255, 0);
         }
@@ -240,6 +396,11 @@
         
         .headText{
             margin-top: -30px;
+            font-size: 20px;
+        }
+
+        .greenBox{
+            height: 510px;
         }
 
         .contact1{
@@ -268,10 +429,19 @@
         .contList{
             display: none;
         }
-    }
 
-    @media (min-width: 768px) {
-        form {
-            max-width: 720px;
+        .lang{
+            margin-top: 0px;
+        }
+
+        .twoBut{
+            top:auto;
+        }
+
+        section{
+            flex-direction: row;
+            justify-content: space-between;
         }
     }
+
+    
